@@ -150,12 +150,10 @@ function minimize( sparse )
 
   if( sparse.length === 0 )
   {
-    debugger;
-    return _.entityMakeOfLength( sparse, 0 );
+    return _.entityMake( sparse, 0 );
   }
 
-  let l = 1;
-  let acc = 0;
+  let l = 0;
 
   for( let i = 2 ; i < sparse.length ; i += 2 )
   {
@@ -164,29 +162,16 @@ function minimize( sparse )
     let b2 = sparse[ i+0 ];
 
     if( e1 !== b2 )
-    {
-      acc = 0;
-      l += 2;
-    }
-    else
-    {
-      acc += 1;
-    }
+    l += 2;
 
   }
 
-  if( acc > 0 )
   l += 2;
 
-  let result = _.entityMakeOfLength( sparse, l*2 );
-
-  result[ 0 ] = sparse[ 0 ];
-  result[ 1 ] = sparse[ 1 ];
-
+  let result = _.entityMake( sparse, l );
   let b = sparse[ 0 ];
   let e = sparse[ 1 ];
-  let c = 0;
-  acc = 0;
+  let r = 0;
 
   /* */
 
@@ -198,36 +183,83 @@ function minimize( sparse )
 
     if( e1 !== b2 )
     {
-      result[ c+0 ] = b;
-      result[ c+1 ] = e;
-      b = sparse[ i+0 ];
+      result[ r+0 ] = b;
+      result[ r+1 ] = e;
+      b = b2;
       e = sparse[ i+1 ];
-      c += 2;
-      acc = 0;
+      r += 2;
     }
     else
     {
       e = sparse[ i+1 ];
-      acc += 1;
     }
 
   }
 
   /* */
 
-  if( acc > 0 )
+  result[ r+0 ] = b;
+  result[ r+1 ] = e;
+  r += 2;
+
+  _.assert( r === l );
+
+  return result;
+}
+
+//
+
+function invertFinite( sparse )
+{
+  _.assert( arguments.length === 1 );
+  _.assert( _.sparse.is( sparse ) )
+
+  if( !sparse.length )
+  return _.entityMake( sparse, 0 );
+
+  let needPre = 0;
+  let needPost = 0;
+
+  if( sparse.length >= 2 )
   {
-    result[ c+0 ] = b;
-    result[ c+1 ] = e;
+    needPre = sparse[ 0 ] === sparse[ 1 ] ? 0 : 1;
+    needPost = sparse[ sparse.length-2 ] === sparse[ sparse.length-1 ] ? 0 : 1;
   }
 
-  _.assert( c === l );
+  let l = sparse.length + needPre*2 + needPost*2 - 2;
+  let result = _.entityMake( sparse, l );
+  let r = 0;
+
+  _.assert( l % 2 === 0 );
+
+  if( needPre )
+  {
+    result[ r+0 ] = sparse[ 0 ];
+    result[ r+1 ] = sparse[ 0 ];
+    r += 2;
+  }
+
+  if( needPost )
+  {
+    result[ result.length-2 ] = sparse[ sparse.length-1 ];
+    result[ result.length-1 ] = sparse[ sparse.length-1 ];
+  }
+
+  for( let i = 2 ; i < sparse.length ; i += 2 )
+  {
+    let e1 = sparse[ i-1 ];
+    let b2 = sparse[ i+0 ];
+
+    result[ r+0 ] = e1;
+    result[ r+1 ] = b2;
+    r += 2;
+  }
 
   return result;
 }
 
 // --
-// define class
+// declare
 // --
 
 let Proto =
@@ -242,6 +274,7 @@ let Proto =
   elementsTotal : elementsTotal,
 
   minimize : minimize,
+  invertFinite : invertFinite,
 
 }
 

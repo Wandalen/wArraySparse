@@ -41,16 +41,147 @@ var Parent = _.Tester;
 function minimize( test )
 {
 
+  test.case = 'trivial';
+
   var src = [ 3,5, 5,7, 7,7, 11,11, 11,11, 11,11, 15,20 ];
   var expected = [ 3,7, 11,11, 15,20 ];
   var got = _.sparse.minimize( src );
-
   test.identical( got, expected );
+  test.is( got !== src );
+
+  test.case = 'empty';
+
+  var src = [];
+  var expected = [];
+  var got = _.sparse.minimize( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+
+  test.case = 'single';
+
+  var src = [ -3,+3 ];
+  var expected = [ -3,+3 ];
+  var got = _.sparse.minimize( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+
+  test.case = 'two separate';
+
+  var src = [ -3,+3, 13,13 ];
+  var expected = [ -3,+3, 13,13 ];
+  var got = _.sparse.minimize( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+
+  test.case = 'two continuous';
+
+  var src = [ -3,+3, 3,13 ];
+  var expected = [ -3,13 ];
+  var got = _.sparse.minimize( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+
+  test.case = 'typed';
+
+  var src = new I32x([ 3,5, 5,7, 7,7, 11,11, 11,11, 11,11, 15,20 ]);
+  var expected = new I32x([ 3,7, 11,11, 15,20 ]);
+  var got = _.sparse.minimize( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+
+}
+
+//
+
+function invertFinite( test )
+{
+
+  test.case = 'trivial';
+
+  var src      = [ 3,5, 5,7, 7,7, 11,11, 11,11, 11,11, 15,20 ];
+  var expected = [ 3,3, 5,5, 7,7, 7,11, 11,11, 11,11, 11,15, 20,20 ];
+  var got = _.sparse.invertFinite( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+  // var got2 = _.sparse.invertFinite( got );
+  // test.identical( got, src );
+  // test.is( got !== got2 );
+
+  test.case = 'empty';
+
+  var src = [];
+  var expected = [];
+  var got = _.sparse.invertFinite( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+  var got2 = _.sparse.invertFinite( got );
+  test.identical( got, src );
+  test.is( got !== got2 );
+
+  test.case = 'single';
+
+  var src = [ -3,+3 ];
+  var expected = [ -3,-3, +3,+3 ];
+  var got = _.sparse.invertFinite( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+  debugger;
+  var got2 = _.sparse.invertFinite( got );
+  test.identical( got, src );
+  test.is( got !== got2 );
+
+  test.case = 'single empty interval';
+
+  var src = [ 3,3 ];
+  var expected = [];
+  var got = _.sparse.invertFinite( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+
+  test.case = 'two separate empty intervals';
+
+  var src = [ -3,-3, 13,13 ];
+  var expected = [ -3, 13 ];
+  var got = _.sparse.invertFinite( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+
+  test.case = 'two separate intervals, left is empty';
+
+  var src = [ -3,-3, 11,13 ];
+  var expected = [];
+  var got = _.sparse.invertFinite( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+
+  test.case = 'two separate intervals, right is empty';
+
+  var src = [ -3,0, 13,13 ];
+  var expected = [];
+  var got = _.sparse.invertFinite( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+
+  test.case = 'two continuous';
+
+  var src = [ -3,+3, 3,13 ];
+  var expected = [];
+  var got = _.sparse.invertFinite( src );
+  test.identical( got, expected );
+  test.is( got !== src );
+
+  test.case = 'typed';
+
+  var src = new I32x([ 3,5, 5,7, 7,7, 11,11, 11,11, 11,11, 15,20 ]);
+  var expected = new I32x([ 3,3, 5,5, 7,7, 7,11, 11,11, 11,11, 11,15, 20,20 ]);
+  var got = _.sparse.invertFinite( src );
+  test.identical( got, expected );
+  test.is( got !== src );
 
 }
 
 // --
-// define class
+// declare
 // --
 
 var Self =
@@ -63,6 +194,7 @@ var Self =
   {
 
     minimize : minimize,
+    invertFinite : invertFinite,
 
   },
 
