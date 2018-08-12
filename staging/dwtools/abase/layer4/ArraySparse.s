@@ -217,6 +217,9 @@ function invertFinite( sparse )
   if( !sparse.length )
   return _.entityMake( sparse, 0 );
 
+  if( sparse.length === 2 && sparse[ 0 ] === sparse[ 1 ] )
+  return _.entityShallowClone( sparse );
+
   let needPre = 0;
   let needPost = 0;
 
