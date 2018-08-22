@@ -64,7 +64,24 @@ function is( sparse )
 
 //
 
-function eachElement( sparse,onEach )
+function eachRange( sparse, onEach )
+{
+
+  _.assert( arguments.length === 2 );
+  _.assert( _.sparse.is( sparse ) );
+
+  let index = 0;
+  for( let s = 0, sl = sparse.length / 2 ; s < sl ; s++ )
+  {
+    let range = [ sparse[ s*2 + 0 ], sparse[ s*2 + 1 ] ];
+    onEach( range, s, sparse );
+  }
+
+}
+
+//
+
+function eachElement( sparse, onEach )
 {
 
   _.assert( arguments.length === 2 );
@@ -272,6 +289,7 @@ let Proto =
 
   is : is,
 
+  eachRange : eachRange,
   eachElement : eachElement,
   eachElementEvenOutside : eachElementEvenOutside,
   elementsTotal : elementsTotal,
