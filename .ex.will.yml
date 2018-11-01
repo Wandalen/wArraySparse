@@ -3,7 +3,7 @@ about :
 
   name : wArraySparse
   description : Collection of routines to operate effectively sparse array. A sparse array is an vector of intervals which splits number space into two subsets, internal and external. ArraySparse leverage iterating, inverting, minimizing and other operations on a sparse array. Use the module to increase memory efficiency of your algorithms.
-  version : 0.3.4
+  version : 0.3.5
   enabled : 1
   interpreters :
   - nodejs >= 6.0.0
@@ -22,30 +22,30 @@ path :
 
   repository : git+https://github.com/Wandalen/wArraySparse.git
   bugs : https://github.com/Wandalen/wArraySparse/issues
-  entry.debug : {path::out.debug}/dwtools/abase/____
-  entry.release : {path::out.release}/dwtools/abase/____
+  entry.debug : '{path::out.debug}/dwtools/abase/____'
+  entry.release : '{path::out.release}/dwtools/abase/____'
 
 build :
 
   .debug.raw.export :
     default : 1
+    filesPath : path::out.debug
+    entryPath : path::entry.debug
     setting :
       debug : 1
       raw : 1
       export : 1
-      filesPath : path::out.debug
-      entryPath : path::entry.debug
     steps :
       - build::.debug
       - step::export
 
   .release.compiled.export :
+    filesPath : path::out.release
+    entryPath : path::entry.release
     setting :
       debug : 0
       raw : 0
       export : 1
-      filesPath : path::out.release
-      entryPath : path::entry.release
     steps :
       - build::.release.compiled
       - step::export
