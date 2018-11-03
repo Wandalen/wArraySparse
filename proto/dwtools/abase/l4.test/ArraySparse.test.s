@@ -26,13 +26,13 @@ if( typeof module !== 'undefined' )
 
   _.include( 'wTesting' );
 
-  require( '../layer4/ArraySparse.s' );
+  require( '../l4/ArraySparse.s' );
 
 }
 
 var _global = _global_;
 var _ = _global_.wTools;
-var Parent = _.Tester;
+var Parent = /*_.*/wTester;
 
 // --
 // test
@@ -216,7 +216,7 @@ function invertFinite( test )
 var Self =
 {
 
-  name : 'Tools/base/layer4/ArraySparse',
+  name : 'Tools/base/l4/ArraySparse',
   silencing : 1,
 
   tests :
@@ -233,6 +233,6 @@ var Self =
 
 Self = wTestSuite( Self );
 if( typeof module !== 'undefined' && !module.parent )
-_.Tester.test( Self.name );
+/*_.*/wTester.test( Self.name );
 
 })();

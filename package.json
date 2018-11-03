@@ -4,13 +4,13 @@
   "description": "Collection of routines to operate effectively sparse array. A sparse array is an vector of intervals which splits number space into two subsets, internal and external. ArraySparse leverage iterating, inverting, minimizing and other operations on a sparse array. Use the module to increase memory efficiency of your algorithms.",
   "author": "Kostiantyn Wandalen <wanalen@willbe.so>",
   "license": "MIT",
-  "main": "staging/dwtools/abase/layer4/ArraySparse.s",
+  "main": "proto/dwtools/abase/l4/ArraySparse.s",
   "files": [
-    "staging/dwtools/abase/layer4",
+    "proto/dwtools/abase/l4",
     "production"
   ],
   "scripts": {
-    "test": "wtest staging",
+    "test": "wtest proto",
     "make_doc": "./doc.sh"
   },
   "repository": {
