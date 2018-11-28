@@ -165,8 +165,8 @@ reflector:
       ./dwtools/abase/l4/ArraySparse.s: true
       ./dwtools/abase/l4.test/ArraySparse.test.s: true
     srcFilter:
-      basePath: ./proto
-      prefixPath: .
+      basePath: .
+      prefixPath: proto
     dstFilter:
       basePath: .
       prefixPath: .
