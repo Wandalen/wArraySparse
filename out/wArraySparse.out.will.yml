@@ -7,7 +7,7 @@ about:
     internal and external. ArraySparse leverage iterating, inverting, minimizing
     and other operations on a sparse array. Use the module to increase memory
     efficiency of your algorithms.
-  version: 0.3.28
+  version: 0.3.29
   enabled: 1
   interpreters:
     - nodejs >= 6.0.0
@@ -284,7 +284,7 @@ build:
       - 'step::export.proto'
 exported:
   proto.export:
-    version: 0.3.28
+    version: 0.3.29
     criterion:
       default: 1
       debug: 1
