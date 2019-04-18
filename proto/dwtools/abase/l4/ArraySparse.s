@@ -11,6 +11,13 @@
  * @file ArraySparse.s
  */
 
+/**
+ * Collection of routines to operate effectively sparse array. A sparse array is an vector of intervals which split number space into two subsets, internal and external. ArraySparse leverage iterating, inverting, minimizing and other operations on a sparse array. Use the module to increase memory efficiency of your algorithms.
+  @namespace ArraySparse
+  @augments wTools
+  @memberof module:Tools/base/ArraySparse
+*/
+
 if( typeof module !== 'undefined' )
 {
 
@@ -35,6 +42,25 @@ let _arraySlice = _.longSlice;
 // sparse
 // --
 
+/**
+ * @summary Checks if current entity is a sparse array.
+ *
+ * @param {} sparse Entity to check
+ *
+ * @example
+ * _.sparse.is( {} ) // false
+ *
+ * @example
+ * _.sparse.is( [ 1, 2, 3, 4, 5 ] ) // false
+ *
+ * @example
+ * _.sparse.is( [ 1, 2, 3, 4 ] ) // true
+ *
+ * @returns { Number } Returns true if entity( sparse ) is a sparse array, otherwise false.
+ * @function is
+ * @memberof module:Tools/base/ArraySparse.ArraySparse
+ */
+
 function is( sparse )
 {
   _.assert( arguments.length === 1 );
@@ -49,6 +75,29 @@ function is( sparse )
 }
 
 //
+
+/**
+ * @summary Calls onEach routine for each range
+ * @description
+ * Arguments list of onEach routine:
+ * * range - current range
+ * * s - index of current range
+ * * sparse - source sparse array
+ * @param {Array} sparse Source sparse array
+ * @param {Function} onEach Routine to call for each range
+ *
+ * @example
+ * _.sparse.eachRange( [ 1, 2, 3, 4 ], ( range ) =>
+ * {
+ *   console.log( range )
+ * })
+ * //[ 1,2 ]
+ * //[ 3,4 ]
+ *
+ * @function eachRange
+ * @throws {Error} If ( sparse ) is not a sparse array.
+ * @memberof module:Tools/base/ArraySparse.ArraySparse
+ */
 
 function eachRange( sparse, onEach )
 {
@@ -66,6 +115,32 @@ function eachRange( sparse, onEach )
 }
 
 //
+
+/**
+ * @summary Calls onEach routine for all elements of each range
+ * @description
+ * Arguments list of onEach routine:
+ * * value - current element from range
+ * * index - global index of current element
+ * * range  current range
+ *
+ * @param {Array} sparse Source sparse array
+ * @param {Function} onEach Routine to call for each range
+ *
+ * @example
+ * _.sparse.eachElement( [ 1, 3, 3, 5 ], ( value, index ) =>
+ * {
+ *   console.log( value, index )
+ * })
+ * // 1 0
+ * // 2 1
+ * // 3 2
+ * // 4 3
+ *
+ * @function eachElement
+ * @throws {Error} If ( sparse ) is not a sparse array.
+ * @memberof module:Tools/base/ArraySparse.ArraySparse
+ */
 
 function eachElement( sparse, onEach )
 {
@@ -87,6 +162,35 @@ function eachElement( sparse, onEach )
 }
 
 //
+
+/**
+ * @summary Calls onEach routine for all elements inside and outside of each range
+ * @description
+ * Arguments list of onEach routine:
+ * * value - current element from range
+ * * index - global index of current element
+ * * range  current range
+ *
+ * @param {Array} sparse Source sparse array
+ * @param {Number} length
+ * @param {Function} onEach Routine to call for each range
+ *
+ * @example
+ * _.sparse.eachElementEvenOutside( [ 2, 3, 3, 6 ], 1, ( value, index, range ) =>
+ * {
+ *   console.log( value, range )
+ * })
+ * // 0 0 [2, 3]
+ * // 1 1 [2, 3]
+ * // 2 2 [2, 3]
+ * // 3 3 [3, 6]
+ * // 4 4 [3, 6]
+ * // 5 5 [3, 6]
+ *
+ * @function eachElementEvenOutside
+ * @throws {Error} If ( sparse ) is not a sparse array.
+ * @memberof module:Tools/base/ArraySparse.ArraySparse
+ */
 
 function eachElementEvenOutside( sparse,length,onEach )
 {
@@ -127,6 +231,18 @@ function eachElementEvenOutside( sparse,length,onEach )
 
 //
 
+/**
+ * @summary Returns total number of elements from all ranges
+ * @param {Array} sparse Source sparse array
+ *
+ * @example
+ * _.sparse.elementsTotal( [ 2, 3, 3, 6 ] )//4
+ *
+ * @function elementsTotal
+ * @throws {Error} If ( sparse ) is not a sparse array.
+ * @memberof module:Tools/base/ArraySparse.ArraySparse
+ */
+
 function elementsTotal( sparse )
 {
   let result = 0;
@@ -144,6 +260,18 @@ function elementsTotal( sparse )
 }
 
 //
+
+/**
+ * @summary Minimizes provided sparse array into a single range.
+ * @param {Array} sparse Source sparse array
+ *
+ * @example
+ * _.sparse.minimize( [ 2, 3, 3, 6  ] )//[ 2, 6 ]
+ *
+ * @function minimize
+ * @throws {Error} If ( sparse ) is not a sparse array.
+ * @memberof module:Tools/base/ArraySparse.ArraySparse
+ */
 
 function minimize( sparse )
 {
@@ -211,6 +339,12 @@ function minimize( sparse )
 }
 
 //
+
+/**
+ * @function invertFinite
+ * @throws {Error} If ( sparse ) is not a sparse array.
+ * @memberof module:Tools/base/ArraySparse.ArraySparse
+ */
 
 function invertFinite( sparse )
 {
