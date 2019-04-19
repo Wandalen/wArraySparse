@@ -12,9 +12,8 @@
  */
 
 /**
- * Collection of routines to operate effectively sparse array. A sparse array is an vector of intervals which split number space into two subsets, internal and external. ArraySparse leverage iterating, inverting, minimizing and other operations on a sparse array. Use the module to increase memory efficiency of your algorithms.
-  @namespace ArraySparse
-  @augments wTools
+ * Collection of routines to operate effectively sparse array.
+  @namespace "wTools.sparse"
   @memberof module:Tools/base/ArraySparse
 */
 
@@ -58,7 +57,7 @@ let _arraySlice = _.longSlice;
  *
  * @returns { Number } Returns true if entity( sparse ) is a sparse array, otherwise false.
  * @function is
- * @memberof module:Tools/base/ArraySparse.ArraySparse
+ * @memberof module:Tools/base/ArraySparse.wTools.sparse
  */
 
 function is( sparse )
@@ -96,7 +95,7 @@ function is( sparse )
  *
  * @function eachRange
  * @throws {Error} If ( sparse ) is not a sparse array.
- * @memberof module:Tools/base/ArraySparse.ArraySparse
+ * @memberof module:Tools/base/ArraySparse.wTools.sparse
  */
 
 function eachRange( sparse, onEach )
@@ -139,7 +138,7 @@ function eachRange( sparse, onEach )
  *
  * @function eachElement
  * @throws {Error} If ( sparse ) is not a sparse array.
- * @memberof module:Tools/base/ArraySparse.ArraySparse
+ * @memberof module:Tools/base/ArraySparse.wTools.sparse
  */
 
 function eachElement( sparse, onEach )
@@ -189,7 +188,7 @@ function eachElement( sparse, onEach )
  *
  * @function eachElementEvenOutside
  * @throws {Error} If ( sparse ) is not a sparse array.
- * @memberof module:Tools/base/ArraySparse.ArraySparse
+ * @memberof module:Tools/base/ArraySparse.wTools.sparse
  */
 
 function eachElementEvenOutside( sparse,length,onEach )
@@ -240,7 +239,7 @@ function eachElementEvenOutside( sparse,length,onEach )
  *
  * @function elementsTotal
  * @throws {Error} If ( sparse ) is not a sparse array.
- * @memberof module:Tools/base/ArraySparse.ArraySparse
+ * @memberof module:Tools/base/ArraySparse.wTools.sparse
  */
 
 function elementsTotal( sparse )
@@ -270,7 +269,7 @@ function elementsTotal( sparse )
  *
  * @function minimize
  * @throws {Error} If ( sparse ) is not a sparse array.
- * @memberof module:Tools/base/ArraySparse.ArraySparse
+ * @memberof module:Tools/base/ArraySparse.wTools.sparse
  */
 
 function minimize( sparse )
@@ -343,7 +342,7 @@ function minimize( sparse )
 /**
  * @function invertFinite
  * @throws {Error} If ( sparse ) is not a sparse array.
- * @memberof module:Tools/base/ArraySparse.ArraySparse
+ * @memberof module:Tools/base/ArraySparse.wTools.sparse
  */
 
 function invertFinite( sparse )
