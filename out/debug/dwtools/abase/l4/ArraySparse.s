@@ -406,15 +406,15 @@ let Proto =
 
   // sparse
 
-  is : is,
+  /*ttt*/is,
 
-  eachRange : eachRange,
-  eachElement : eachElement,
-  eachElementEvenOutside : eachElementEvenOutside,
-  elementsTotal : elementsTotal,
+  /*ttt*/eachRange,
+  /*ttt*/eachElement,
+  /*ttt*/eachElementEvenOutside,
+  /*ttt*/elementsTotal,
 
-  minimize : minimize,
-  invertFinite : invertFinite,
+  /*ttt*/minimize,
+  /*ttt*/invertFinite,
 
 }
 
