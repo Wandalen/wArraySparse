@@ -205,8 +205,8 @@ var Self =
   tests :
   {
 
-    /*ttt*/minimize,
-    /*ttt*/invertFinite,
+    minimize,
+    invertFinite,
 
   },
 
