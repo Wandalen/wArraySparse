@@ -1,51 +1,89 @@
 
-
 about :
 
-  name : "wArraySparse"
-  description : "Collection of routines to operate effectively sparse array. A sparse array is an vector of intervals which splits number space into two subsets, internal and external. ArraySparse leverage iterating, inverting, minimizing and other operations on a sparse array. Use the module to increase memory efficiency of your algorithms."
-  version : "0.3.34"
+  name : 'wArraySparse'
+  description : 'Collection of routines to operate effectively sparse array. A sparse array is an vector of intervals which splits number space into two subsets, internal and external. ArraySparse leverage iterating, inverting, minimizing and other operations on a sparse array. Use the module to increase memory efficiency of your algorithms.'
+  version : '0.4.0'
   enabled : 1
   interpreters :
-  - nodejs >= 8.0.0
+  - njs >= 8.0.0
   - chrome >= 60.0.0
   - firefox >= 60.0.0
   keywords :
   - wTools
-
-execution :
-
-  scripts :
-    test : wtest .run proto/**
-    docgen : wdocgen staging
+  license : MIT
+  author : 'Kostiantyn Wandalen <wanalen@willbe.so>'
+  contributors :
+  - 'Kostiantyn Wandalen <wanalen@willbe.so>'
+  npm.name : 'warraysparse'
+  npm.scripts :
+    test : 'wtest .run proto/**'
+    docgen : 'wdocgen .build proto'
 
 path :
 
-  repository : git+https:///github.com/Wandalen/wArraySparse.git
-  bugs : https:///github.com/Wandalen/wArraySparse/issues
+  repository : git+https:///github.com/Wandalen.wArraySparse.git
+  bugtracker : https:///github.com/Wandalen/wArraySparse/issues
 
 step :
 
-  export.proto :
+  proto.export :
     inherit : module.export
     export : path::proto
     tar : 0
     criterion :
-      debug : 1
-      proto : 1
+      content : 'proto'
+
+  doc.export :
+    inherit : module.export
+    export : path::doc
+    tar : 0
+    criterion :
+      content : 'doc'
+
+  npm.export :
+    inherit : module.export
+    export : out.npm
+    tar : 0
+    criterion :
+      content : 'npm'
+
+  npm.publish :
+    shell : npm publish
 
 build :
 
   proto.export :
     criterion :
-      default : 1
-      debug : 1
-      raw : 1
-      proto : 1
+      content : 'proto'
       export : 1
-      tar : 1
-      public : 1
     steps :
-      - build::debug.raw
-      - step::export.proto
+      # - build::debug.raw
+      - step::proto.export
 
+  doc.export :
+    criterion :
+      content : 'doc'
+      export : 1
+    steps :
+      # - build::debug.raw
+      - step::doc.export
+
+  npm.export :
+    criterion :
+      content : 'npm'
+      export : 1
+    steps :
+      # - build::debug.raw
+      # - step::npm.export
+      - step::npm.publish
+
+  export :
+
+    criterion :
+      default : 1
+      export : 1
+    steps :
+      # - build::npm
+      - build::proto.export
+      # - build::doc.export
