@@ -3,18 +3,19 @@ root:
   - wArraySparse.out
 consistency:
   wArraySparse.out.will.yml: &ref_0
-    hash: ccff1b6edb045427836a70d36ddafad8
-    size: 38592
+    hash: 318e427501e894a7482e34569184f6c2
+    size: 38621
   ../.ex.will.yml: &ref_1
     hash: f6699f75a65b36988a791febb8483f95
     size: 1995
   ../.im.will.yml: &ref_2
-    hash: 1ee3b03a0714e91bb462942380a79f90
-    size: 4871
+    hash: 987516d233b720dd4b1d83418bd94707
+    size: 4945
 module:
   wArraySparse.out:
     about:
       name: wArraySparse
+      org: noorg
       description: >-
         Collection of routines to operate effectively sparse array. A sparse
         array is an vector of intervals which splits number space into two
@@ -65,9 +66,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen.wArraySparse.git'
       origins:
@@ -77,15 +75,15 @@ module:
       bugtracker:
         path: 'https:///github.com/Wandalen/wArraySparse/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       out:
-        criterion:
-          predefined: 0
         path: .
       temp:
-        path: 'path::out'
+        path:
+          - 'path::out'
+          - ../package-lock.json
+          - ../package.json
+          - ../node_modules
       proto:
         path: ../proto
       export:
@@ -150,11 +148,13 @@ module:
         path: '{path::out.*=}/source/Index.s'
       exported.dir.proto.export:
         criterion:
+          generated: 1
           content: proto
           export: 1
         path: ../proto
       exported.files.proto.export:
         criterion:
+          generated: 1
           content: proto
           export: 1
         path:
@@ -333,6 +333,7 @@ module:
           prefixPath: ../proto
         mandatory: 1
         criterion:
+          generated: 1
           content: proto
           export: 1
       exported.files.proto.export:
@@ -345,6 +346,7 @@ module:
         recursive: 0
         mandatory: 1
         criterion:
+          generated: 1
           content: proto
           export: 1
     step:
@@ -702,6 +704,7 @@ module:
         opts:
           reflector: 'reflector::exported.proto.export*'
         criterion:
+          generated: 1
           content: proto
           export: 1
         inherit:
@@ -710,6 +713,7 @@ module:
         opts:
           reflector: 'reflector::exported.files.proto.export*'
         criterion:
+          generated: 1
           content: proto
           export: 1
         inherit:
@@ -808,6 +812,7 @@ module:
   ../:
     about:
       name: wArraySparse
+      org: noorg
       description: >-
         Collection of routines to operate effectively sparse array. A sparse
         array is an vector of intervals which splits number space into two
@@ -858,9 +863,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen.wArraySparse.git'
       origins:
@@ -870,21 +872,21 @@ module:
       bugtracker:
         path: 'https:///github.com/Wandalen/wArraySparse/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       out:
-        criterion:
-          predefined: 0
         path: out
       temp:
-        path: 'path::out'
+        path:
+          - 'path::out'
+          - package-lock.json
+          - package.json
+          - node_modules
       proto:
-        path: ./proto
+        path: proto
       export:
         path: '{path::proto}/**'
       doc:
-        path: ./doc
+        path: doc
       out.raw.debug:
         criterion:
           debug: debug
@@ -1502,6 +1504,6 @@ module:
         hash: f6699f75a65b36988a791febb8483f95
         size: 1995
       ../.im.will.yml:
-        hash: 1ee3b03a0714e91bb462942380a79f90
-        size: 4871
+        hash: 987516d233b720dd4b1d83418bd94707
+        size: 4945
       wArraySparse.out.will.yml: *ref_0
