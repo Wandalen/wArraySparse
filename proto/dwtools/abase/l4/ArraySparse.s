@@ -14,6 +14,7 @@
 /**
  * Collection of routines to operate effectively sparse array.
   @namespace "wTools.sparse"
+  @extends Tools
   @memberof module:Tools/base/ArraySparse
 */
 
