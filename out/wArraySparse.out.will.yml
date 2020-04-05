@@ -1506,6 +1506,4 @@ module:
       ../.im.will.yml:
         hash: 987516d233b720dd4b1d83418bd94707
         size: 4945
-      wArraySparse.out.will.yml:
-        hash: 318e427501e894a7482e34569184f6c2
-        size: 38621
+      wArraySparse.out.will.yml: *ref_0
