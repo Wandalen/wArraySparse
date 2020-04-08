@@ -15,7 +15,7 @@
  * Collection of routines to operate effectively sparse array.
   @namespace "wTools.sparse"
   @extends Tools
-  @memberof module:Tools/base/ArraySparse
+  @module Tools/base/ArraySparse
 */
 
 if( typeof module !== 'undefined' )
@@ -58,7 +58,7 @@ let _arraySlice = _.longSlice;
  *
  * @returns { Number } Returns true if entity( sparse ) is a sparse array, otherwise false.
  * @function is
- * @memberof namespace:wTools.sparse
+ * @namespace Tools.sparse
  */
 
 function is( sparse )
@@ -96,7 +96,7 @@ function is( sparse )
  *
  * @function eachRange
  * @throws {Error} If ( sparse ) is not a sparse array.
- * @memberof namespace:wTools.sparse
+ * @namespace Tools.sparse
  */
 
 function eachRange( sparse, onEach )
@@ -139,7 +139,7 @@ function eachRange( sparse, onEach )
  *
  * @function eachElement
  * @throws {Error} If ( sparse ) is not a sparse array.
- * @memberof namespace:wTools.sparse
+ * @namespace Tools.sparse
  */
 
 function eachElement( sparse, onEach )
@@ -189,7 +189,7 @@ function eachElement( sparse, onEach )
  *
  * @function eachElementEvenOutside
  * @throws {Error} If ( sparse ) is not a sparse array.
- * @memberof namespace:wTools.sparse
+ * @namespace Tools.sparse
  */
 
 function eachElementEvenOutside( sparse,length,onEach )
@@ -240,7 +240,7 @@ function eachElementEvenOutside( sparse,length,onEach )
  *
  * @function elementsTotal
  * @throws {Error} If ( sparse ) is not a sparse array.
- * @memberof namespace:wTools.sparse
+ * @namespace Tools.sparse
  */
 
 function elementsTotal( sparse )
@@ -270,7 +270,7 @@ function elementsTotal( sparse )
  *
  * @function minimize
  * @throws {Error} If ( sparse ) is not a sparse array.
- * @memberof namespace:wTools.sparse
+ * @namespace Tools.sparse
  */
 
 function minimize( sparse )
@@ -343,7 +343,7 @@ function minimize( sparse )
 /**
  * @function invertFinite
  * @throws {Error} If ( sparse ) is not a sparse array.
- * @memberof namespace:wTools.sparse
+ * @namespace Tools.sparse
  */
 
 function invertFinite( sparse )
