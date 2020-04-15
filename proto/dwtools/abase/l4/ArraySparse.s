@@ -13,7 +13,7 @@
 
 /**
  * Collection of routines to operate effectively sparse array.
-  @namespace "wTools.sparse"
+  @namespace wTools.sparse
   @extends Tools
   @module Tools/base/ArraySparse
 */
@@ -45,7 +45,7 @@ let _arraySlice = _.longSlice;
 /**
  * @summary Checks if current entity is a sparse array.
  *
- * @param {} sparse Entity to check
+ * @param {*} sparse Entity to check
  *
  * @example
  * _.sparse.is( {} ) // false
