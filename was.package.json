@@ -1,22 +1,22 @@
 {
-  "name" : "warraysparse", 
-  "version" : "0.3.158", 
-  "description" : "Collection of routines to operate effectively sparse array. A sparse array is an vector of intervals which splits number space into two subsets, internal and external. ArraySparse leverage iterating, inverting, minimizing and other operations on a sparse array. Use the module to increase memory efficiency of your algorithms.", 
-  "author" : "Kostiantyn Wandalen <wanalen@willbe.so>", 
-  "license" : "MIT", 
-  "main" : "proto/dwtools/abase/l4/ArraySparse.s", 
-  "files" : [ "proto/dwtools/abase/l4", "proto/dwtools/Tools.s", "out" ], 
-  "scripts" : { "test" : "wtest .run proto/**", "docgen" : "wdocgen proto" }, 
-  "repository" : 
+  "name" : "warraysparse",
+  "version" : "0.3.159",
+  "description" : "Collection of routines to operate effectively sparse array. A sparse array is an vector of intervals which splits number space into two subsets, internal and external. ArraySparse leverage iterating, inverting, minimizing and other operations on a sparse array. Use the module to increase memory efficiency of your algorithms.",
+  "author" : "Kostiantyn Wandalen <wanalen@willbe.so>",
+  "license" : "MIT",
+  "main" : "proto/dwtools/abase/l4/ArraySparse.s",
+  "files" : [ "proto/dwtools/abase/l4", "proto/dwtools/Tools.s", "out" ],
+  "scripts" : { "test" : "wtest .run proto/**", "docgen" : "wdocgen proto" },
+  "repository" :
   {
-    "type" : "git", 
+    "type" : "git",
     "url" : "https://github.com/Wandalen/wArraySparse.git"
-  }, 
-  "bugs" : 
+  },
+  "bugs" :
   {
     "url" : "https://github.com/Wandalen/wArraySparse/issues"
-  }, 
-  "dependencies" : { "wTools" : "" }, 
-  "devDependencies" : { "wTesting" : "" }, 
+  },
+  "dependencies" : { "wTools" : "" },
+  "devDependencies" : { "wTesting" : "" },
   "keywords" : [ "wTools" ]
 }
