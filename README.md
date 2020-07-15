@@ -6,7 +6,7 @@ Collection of routines to operate effectively sparse array. A sparse array is an
 ## Try out
 ```
 npm install
-node sample/Sample.js
+node sample/Sample.s
 ```
 
 
