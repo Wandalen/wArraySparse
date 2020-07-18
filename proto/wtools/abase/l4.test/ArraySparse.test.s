@@ -199,7 +199,7 @@ function invertFinite( test )
 let Self =
 {
 
-  name : 'Tools.base.l4.ArraySparse',
+  name : 'Tools.l4.ArraySparse',
   silencing : 1,
 
   tests :
