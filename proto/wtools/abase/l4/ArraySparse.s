@@ -8,8 +8,7 @@
 */
 
 /**
- * @file ArraySparse.s
- */
+ *  */
 
 /**
  * Collection of routines to operate effectively sparse array.
