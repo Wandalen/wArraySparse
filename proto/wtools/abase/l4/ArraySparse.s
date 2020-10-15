@@ -3,7 +3,7 @@
 'use strict';
 
 /**
- * Collection of routines to operate effectively sparse array. A sparse array is an vector of intervals which split number space into two subsets, internal and external. ArraySparse leverage iterating, inverting, minimizing and other operations on a sparse array. Use the module to increase memory efficiency of your algorithms.
+ * Collection of cross-platform routines to operate effectively sparse array. A sparse array is an vector of intervals which split number space into two subsets, internal and external. ArraySparse leverage iterating, inverting, minimizing and other operations on a sparse array. Use the module to increase memory efficiency of your algorithms.
   @module Tools/base/ArraySparse
 */
 
@@ -11,7 +11,7 @@
  *  */
 
 /**
- * Collection of routines to operate effectively sparse array.
+ * Collection of cross-platform routines to operate effectively sparse array.
   @namespace wTools.sparse
   @extends Tools
   @module Tools/base/ArraySparse
