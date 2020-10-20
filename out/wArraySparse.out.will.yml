@@ -2,10 +2,13 @@ format: outwillfile-2.0
 root:
   - wArraySparse.out
 consistency:
-  ../.ex.will.yml: &ref_0
+  wArraySparse.out.will.yml: &ref_0
+    hash: 12457382ec0f45c3139341de61deac3a
+    size: 38476
+  ../.ex.will.yml: &ref_1
     hash: b156ed11742fcc6eb2f2801fbeda40a8
     size: 2011
-  ../.im.will.yml: &ref_1
+  ../.im.will.yml: &ref_2
     hash: a242a3fe916527b2f0ed07f35fc51597
     size: 4942
 module:
@@ -21,18 +24,18 @@ module:
         Use the module to increase memory efficiency of your algorithms.
       enabled: 1
       version: 0.4.0
-      interpreters: &ref_2
+      interpreters:
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
+      keywords:
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: &ref_4
+      contributors:
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: warraysparse
-      npm.scripts: &ref_5
+      npm.scripts:
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -690,6 +693,24 @@ module:
           content: prime
         inherit:
           - files.transpile
+      exported.proto.export:
+        opts:
+          filePath: 'reflector::exported.proto.export'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
+      exported.files.proto.export:
+        opts:
+          filePath: 'reflector::exported.files.proto.export'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
     build:
       proto.export:
         steps:
@@ -778,8 +799,9 @@ module:
           content: proto
           export: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      wArraySparse.out.will.yml: *ref_0
+      ../.ex.will.yml: *ref_1
+      ../.im.will.yml: *ref_2
   ../:
     about:
       name: wArraySparse
@@ -792,13 +814,20 @@ module:
         Use the module to increase memory efficiency of your algorithms.
       enabled: 1
       version: 0.4.0
-      interpreters: *ref_2
-      keywords: *ref_3
+      interpreters:
+        - njs >= 10.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+      keywords:
+        - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: *ref_4
+      contributors:
+        - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: warraysparse
-      npm.scripts: *ref_5
+      npm.scripts:
+        test: wtest .run proto/**
+        docgen: wdocgen .build proto
     path:
       module.willfiles:
         criterion:
@@ -1461,3 +1490,6 @@ module:
       ../.im.will.yml:
         hash: a242a3fe916527b2f0ed07f35fc51597
         size: 4942
+      wArraySparse.out.will.yml:
+        hash: 12457382ec0f45c3139341de61deac3a
+        size: 38476
