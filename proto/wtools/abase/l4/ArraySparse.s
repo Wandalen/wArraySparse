@@ -1,4 +1,5 @@
-( function _ArraySparse_s_() {
+( function _ArraySparse_s_()
+{
 
 'use strict';
 
@@ -90,8 +91,8 @@ function is( sparse )
  * {
  *   console.log( range )
  * })
- * //[ 1,2 ]
- * //[ 3,4 ]
+ * //[ 1, 2 ]
+ * //[ 3, 4 ]
  *
  * @function eachRange
  * @throws {Error} If ( sparse ) is not a sparse array.
@@ -150,10 +151,10 @@ function eachElement( sparse, onEach )
   let index = 0;
   for( let s = 0, sl = sparse.length / 2 ; s < sl ; s++ )
   {
-    let range = [ sparse[ s*2 + 0 ],sparse[ s*2 + 1 ] ];
+    let range = [ sparse[ s*2 + 0 ], sparse[ s*2 + 1 ] ];
     for( let key = range[ 0 ], kl = range[ 1 ] ; key < kl ; key++ )
     {
-      onEach.call( this,key,index,range,1 );
+      onEach.call( this, key, index, range, 1 );
       index += 1;
     }
   }
@@ -191,7 +192,7 @@ function eachElement( sparse, onEach )
  * @namespace Tools.sparse
  */
 
-function eachElementEvenOutside( sparse,length,onEach )
+function eachElementEvenOutside( sparse, length, onEach )
 {
 
   _.assert( arguments.length === 3 );
@@ -203,17 +204,17 @@ function eachElementEvenOutside( sparse,length,onEach )
   let was = 0;
   for( let s = 0, sl = sparse.length / 2 ; s < sl ; s++ )
   {
-    let range = [ sparse[ s*2 + 0 ],sparse[ s*2 + 1 ] ];
+    let range = [ sparse[ s*2 + 0 ], sparse[ s*2 + 1 ] ];
 
     for( let key = was ; key < range[ 0 ] ; key++ )
     {
-      onEach.call( this,key,index,range,0 );
+      onEach.call( this, key, index, range, 0 );
       index += 1;
     }
 
     for( let key = range[ 0 ], kl = range[ 1 ] ; key < kl ; key++ )
     {
-      onEach.call( this,key,index,range,1 );
+      onEach.call( this, key, index, range, 1 );
       index += 1;
     }
 
@@ -222,7 +223,7 @@ function eachElementEvenOutside( sparse,length,onEach )
 
   for( let key = was ; key < length ; key++ )
   {
-    onEach.call( this,key,index,range,0 );
+    onEach.call( this, key, index, range, 0 );
     index += 1;
   }
 
@@ -251,7 +252,7 @@ function elementsTotal( sparse )
 
   for( let s = 0, sl = sparse.length / 2 ; s < sl ; s++ )
   {
-    let range = [ sparse[ s*2 + 0 ],sparse[ s*2 + 1 ] ];
+    let range = [ sparse[ s*2 + 0 ], sparse[ s*2 + 1 ] ];
     result += range[ 1 ] - range[ 0 ];
   }
 
