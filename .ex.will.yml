@@ -22,7 +22,7 @@ about :
 
 path :
 
-  repository : git+https:///github.com/Wandalen.wArraySparse.git
+  repository : git+https:///github.com/Wandalen/wArraySparse.git
   origins :
    - git+https:///github.com/Wandalen/wArraySparse.git
    - npm:///warraysparse
