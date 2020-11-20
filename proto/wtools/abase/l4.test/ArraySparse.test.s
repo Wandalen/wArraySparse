@@ -31,7 +31,7 @@ function minimize( test )
   var expected = [ 3, 7, 11, 11, 15, 20 ];
   var got = _.sparse.minimize( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
 
   test.case = 'empty';
 
@@ -39,7 +39,7 @@ function minimize( test )
   var expected = [];
   var got = _.sparse.minimize( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
 
   test.case = 'single';
 
@@ -47,7 +47,7 @@ function minimize( test )
   var expected = [ -3, +3 ];
   var got = _.sparse.minimize( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
 
   test.case = 'two separate';
 
@@ -55,7 +55,7 @@ function minimize( test )
   var expected = [ -3, +3, 13, 13 ];
   var got = _.sparse.minimize( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
 
   test.case = 'two continuous';
 
@@ -63,7 +63,7 @@ function minimize( test )
   var expected = [ -3, 13 ];
   var got = _.sparse.minimize( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
 
   test.case = 'typed';
 
@@ -71,7 +71,7 @@ function minimize( test )
   var expected = new I32x([ 3, 7, 11, 11, 15, 20 ]);
   var got = _.sparse.minimize( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
 
 }
 
@@ -86,10 +86,10 @@ function invertFinite( test )
   var expected = [ 3, 3, 5, 5, 7, 7, 7, 11, 11, 11, 11, 11, 11, 15, 20, 20 ];
   var got = _.sparse.invertFinite( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
   var got2 = _.sparse.invertFinite( got );
   test.identical( got2, src );
-  test.is( got !== got2 );
+  test.true( got !== got2 );
 
   test.case = 'empty';
 
@@ -97,10 +97,10 @@ function invertFinite( test )
   var expected = [];
   var got = _.sparse.invertFinite( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
   var got2 = _.sparse.invertFinite( got );
   test.identical( got2, src );
-  test.is( got !== got2 );
+  test.true( got !== got2 );
 
   test.case = 'single';
 
@@ -108,10 +108,10 @@ function invertFinite( test )
   var expected = [ -3, -3, +3, +3 ];
   var got = _.sparse.invertFinite( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
   var got2 = _.sparse.invertFinite( got );
   test.identical( got2, src );
-  test.is( got !== got2 );
+  test.true( got !== got2 );
 
   test.case = 'single empty interval';
 
@@ -120,10 +120,10 @@ function invertFinite( test )
   debugger;
   var got = _.sparse.invertFinite( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
   var got2 = _.sparse.invertFinite( got );
   test.identical( got2, src );
-  test.is( got !== got2 );
+  test.true( got !== got2 );
 
   test.case = 'two separate empty intervals';
 
@@ -131,10 +131,10 @@ function invertFinite( test )
   var expected = [ -3, 13 ];
   var got = _.sparse.invertFinite( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
   var got2 = _.sparse.invertFinite( got );
   test.identical( got2, src );
-  test.is( got !== got2 );
+  test.true( got !== got2 );
 
   test.case = 'three separate empty intervals';
 
@@ -142,10 +142,10 @@ function invertFinite( test )
   var expected = [ -3, 5, 5, 13 ];
   var got = _.sparse.invertFinite( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
   var got2 = _.sparse.invertFinite( got );
   test.identical( got2, src );
-  test.is( got !== got2 );
+  test.true( got !== got2 );
 
   test.case = 'two separate intervals, left is empty';
 
@@ -153,10 +153,10 @@ function invertFinite( test )
   var expected = [ -3, 11, 13, 13 ];
   var got = _.sparse.invertFinite( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
   var got2 = _.sparse.invertFinite( got );
   test.identical( got2, src );
-  test.is( got !== got2 );
+  test.true( got !== got2 );
 
   test.case = 'two separate intervals, right is empty';
 
@@ -164,10 +164,10 @@ function invertFinite( test )
   var expected = [ -3, -3, 0, 13 ];
   var got = _.sparse.invertFinite( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
   var got2 = _.sparse.invertFinite( got );
   test.identical( got2, src );
-  test.is( got !== got2 );
+  test.true( got !== got2 );
 
   test.case = 'two continuous';
 
@@ -175,10 +175,10 @@ function invertFinite( test )
   var expected = [ -3, -3, 3, 3, 13, 13 ];
   var got = _.sparse.invertFinite( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
   var got2 = _.sparse.invertFinite( got );
   test.identical( got2, src );
-  test.is( got !== got2 );
+  test.true( got !== got2 );
 
   test.case = 'typed';
 
@@ -186,10 +186,10 @@ function invertFinite( test )
   var expected = new I32x([ 3, 3, 5, 5, 7, 7, 7, 11, 11, 11, 11, 11, 11, 15, 20, 20 ]);
   var got = _.sparse.invertFinite( src );
   test.identical( got, expected );
-  test.is( got !== src );
+  test.true( got !== src );
   var got2 = _.sparse.invertFinite( got );
   test.identical( got2, src );
-  test.is( got !== got2 );
+  test.true( got !== got2 );
 
 }
 
