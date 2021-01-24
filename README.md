@@ -8,7 +8,7 @@ Collection of cross-platform routines to operate effectively sparse array. A spa
 git clone https://github.com/Wandalen/wArraySparse
 cd wArraySparse
 npm install
-node sample/Sample.s
+node sample/trivial/Sample.s
 ```
 
 ## To add to your project
