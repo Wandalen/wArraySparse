@@ -1,35 +1,22 @@
 {
-  "name": "warraysparse",
-  "version": "0.3.223",
-  "description": "Collection of cross-platform routines to operate effectively sparse array. A sparse array is an vector of intervals which splits number space into two subsets, internal and external. ArraySparse leverage iterating, inverting, minimizing and other operations on a sparse array. Use the module to increase memory efficiency of your algorithms.",
-  "author": "Kostiantyn Wandalen <wanalen@01.school>",
-  "license": "MIT",
-  "main": "proto/wtools/abase/l4/ArraySparse.s",
-  "files": [
-    "proto/wtools/abase/l4",
-    "proto/wtools/Tools.s",
-    "out"
-  ],
-  "scripts": {
-    "test": "wtest .run 'proto/**' rapidity:-3",
-    "docgen": "wdocgen proto"
+  "name" : "warraysparse",
+  "version" : "0.3.224",
+  "description" : "Collection of cross-platform routines to operate effectively sparse array. A sparse array is an vector of intervals which splits number space into two subsets, internal and external. ArraySparse leverage iterating, inverting, minimizing and other operations on a sparse array. Use the module to increase memory efficiency of your algorithms.",
+  "author" : "Kostiantyn Wandalen <wanalen@01.school>",
+  "license" : "MIT",
+  "main" : "proto/wtools/abase/l4/ArraySparse.s",
+  "files" : [ "proto/wtools/abase/l4", "proto/wtools/Tools.s", "out" ],
+  "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen proto" },
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "https://github.com/Wandalen/wArraySparse.git"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Wandalen/wArraySparse.git"
+  "bugs" :
+  {
+    "url" : "https://github.com/Wandalen/wArraySparse/issues"
   },
-  "bugs": {
-    "url": "https://github.com/Wandalen/wArraySparse/issues"
-  },
-  "dependencies": {
-    "wTools": "alpha"
-  },
-  "devDependencies": {
-    "eslint": "7.1.0",
-    "wTesting": "alpha",
-    "warraysparse": "file:."
-  },
-  "keywords": [
-    "wTools"
-  ]
+  "dependencies" : { "wTools" : "" },
+  "devDependencies" : { "wTesting" : "", "eslint" : "7.1.0", "warraysparse" : "file:." },
+  "keywords" : [ "wTools" ]
 }
