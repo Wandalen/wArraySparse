@@ -314,7 +314,11 @@ function minimize( sparse )
     let e1 = sparse[ i-1 ];
     let b2 = sparse[ i+0 ];
 
-    if( e1 !== b2 )
+    if( e1 === b2 )
+    {
+      e = sparse[ i+1 ];
+    }
+    else
     {
       result[ r+0 ] = b;
       result[ r+1 ] = e;
@@ -322,10 +326,18 @@ function minimize( sparse )
       e = sparse[ i+1 ];
       r += 2;
     }
-    else
-    {
-      e = sparse[ i+1 ];
-    }
+    // if( e1 !== b2 )
+    // {
+    //   result[ r+0 ] = b;
+    //   result[ r+1 ] = e;
+    //   b = b2;
+    //   e = sparse[ i+1 ];
+    //   r += 2;
+    // }
+    // else
+    // {
+    //   e = sparse[ i+1 ];
+    // }
 
   }
 
