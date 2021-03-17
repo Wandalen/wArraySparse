@@ -117,7 +117,6 @@ function invertFinite( test )
 
   var src = [ 3, 3 ];
   var expected = [ 3, 3 ];
-  debugger;
   var got = _.sparse.invertFinite( src );
   test.identical( got, expected );
   test.true( got !== src );
