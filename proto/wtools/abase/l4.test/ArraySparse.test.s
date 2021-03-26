@@ -16,7 +16,7 @@ if( typeof module !== 'undefined' )
 
 const _global = _global_;
 const _ = _global_.wTools;
-let Parent = wTester;
+const Parent = wTester;
 
 // --
 // test
