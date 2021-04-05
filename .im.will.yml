@@ -77,8 +77,8 @@ path:
       raw: compiled
       content: prime
   npm.proto.entry:
-    - /pro/module/wArraySparse/proto/wtools/abase/l4/ArraySparse.s
-    - /pro/module/wArraySparse/proto/node_modules/warraysparse
+    - proto/wtools/abase/l4/ArraySparse.s
+    - proto/node_modules/warraysparse
 reflector:
   reflect.proto:
     inherit: predefined.*
