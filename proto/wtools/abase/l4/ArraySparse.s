@@ -27,9 +27,9 @@ if( typeof module !== 'undefined' )
 
 //
 
-const Self = _global_.wTools.sparse = _global_.wTools.sparse || Object.create( null );
-const _global = _global_;
 const _ = _global_.wTools;
+const _global = _global_;
+_.sparse = _.sparse || Object.create( null );
 
 const _ArraySlice = Array.prototype.slice;
 const _FunctionBind = Function.prototype.bind;
@@ -435,13 +435,13 @@ let Proto =
 
 }
 
-_.props.extend( Self, Proto );
+/* _.props.extend */Object.assign( _.sparse, Proto );
 
 // --
 // export
 // --
 
 if( typeof module !== 'undefined' )
-module[ 'exports' ] = Self;
+module[ 'exports' ] = _.sparse;
 
 })();
