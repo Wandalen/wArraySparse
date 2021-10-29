@@ -3,8 +3,8 @@ root:
   - wArraySparse.out
 consistency:
   ../will.yml: &ref_0
-    hash: ec27d2d7b546235595309f9e5fe76b2e
-    size: 6772
+    hash: b6967c0bb272e79335da720eb1727455
+    size: 6631
 module:
   wArraySparse.out:
     about:
@@ -370,9 +370,6 @@ module:
           content: npm
         inherit:
           - module.export
-      npm.publish:
-        opts:
-          shell: npm publish
       npm.generate.debug.raw:
         opts:
           entryPath: 'path::entry.out.*=1'
@@ -708,12 +705,6 @@ module:
           - 'step::doc.export'
         criterion:
           content: doc
-          export: 1
-      npm.export:
-        steps:
-          - 'step::npm.publish'
-        criterion:
-          content: npm
           export: 1
       export:
         steps:
@@ -1066,9 +1057,6 @@ module:
           content: npm
         inherit:
           - module.export
-      npm.publish:
-        opts:
-          shell: npm publish
       npm.generate.debug.raw:
         opts:
           entryPath: 'path::entry.out.*=1'
@@ -1405,12 +1393,6 @@ module:
         criterion:
           content: doc
           export: 1
-      npm.export:
-        steps:
-          - 'step::npm.publish'
-        criterion:
-          content: npm
-          export: 1
       export:
         steps:
           - 'build::proto.export'
@@ -1468,5 +1450,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: ec27d2d7b546235595309f9e5fe76b2e
-        size: 6772
+        hash: b6967c0bb272e79335da720eb1727455
+        size: 6631
