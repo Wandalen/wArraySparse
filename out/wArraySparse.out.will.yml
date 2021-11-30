@@ -3,8 +3,8 @@ root:
   - wArraySparse.out
 consistency:
   ../will.yml: &ref_0
-    hash: b6967c0bb272e79335da720eb1727455
-    size: 6631
+    hash: 810943864df3bc95a88f148e463a3b06
+    size: 6639
 module:
   wArraySparse.out:
     about:
@@ -1450,5 +1450,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: b6967c0bb272e79335da720eb1727455
-        size: 6631
+        hash: 810943864df3bc95a88f148e463a3b06
+        size: 6639
